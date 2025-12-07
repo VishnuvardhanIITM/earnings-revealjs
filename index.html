@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Q4 Earnings – Interactive RevealJS Deck</title>
+
+    <!-- RevealJS core + theme from CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css"
+      id="theme"
+    />
+
+    <!-- Code highlighting theme -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css"
+    />
+
+    <style>
+      /* Small footer with email on every slide */
+      .footer-email {
+        position: fixed;
+        left: 20px;
+        bottom: 10px;
+        font-size: 14px;
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Slide 1: Title + email + speaker notes -->
+        <section>
+          <h2>Q4 Earnings Report</h2>
+          <h4>Interactive RevealJS Presentation</h4>
+          <p>Technical Consultant – Financial Analytics</p>
+          <div class="footer-email">
+            Contact: 21f3000557@ds.study.iitm.ac.in
+          </div>
+
+          <aside class="notes">
+            Welcome the stakeholders, briefly explain that this deck is built
+            with RevealJS to showcase interactive and modern presentation
+            capabilities. Mention that the focus is on earnings, efficiency,
+            and risk metrics.
+          </aside>
+        </section>
+
+        <!-- Slide 2: Markdown slide -->
+        <section data-markdown>
+          <textarea data-template>
+## Revenue Snapshot – 2024
+
+- **Total Revenue:** \$4.2B  
+- **YoY Growth:** **+8.5%**
+- **Net Income:** \$620M  
+- **EPS:** \$3.45  
+
+---
+
+## Key Drivers
+
+- Strong performance in **Retail Banking**
+- Improved **Net Interest Margin**
+- Reduced **credit losses**
+          </textarea>
+        </section>
+
+        <!-- Slide 3: Fragments (animated bullet points) -->
+        <section>
+          <h2>Quarterly Highlights</h2>
+          <ul>
+            <li class="fragment">Q1: Stabilization after rate hikes</li>
+            <li class="fragment">Q2: Growth in digital transactions</li>
+            <li class="fragment">Q3: Record loan origination volume</li>
+            <li class="fragment fade-up">
+              Q4: Margin expansion and lower funding costs
+            </li>
+          </ul>
+
+          <aside class="notes">
+            Walk through each point as it appears. Emphasize how Q4 consolidates
+            the gains from earlier quarters and sets the tone for next year.
+          </aside>
+        </section>
+
+        <!-- Slide 4: Code sample with syntax highlighting -->
+        <section>
+          <h2>Example: Earnings Sensitivity Model (Python)</h2>
+          <pre><code class="language-python" data-line-numbers="1-4|6-11">
+import pandas as pd
+
+# Simplified sensitivity model
+rates = [3.5, 4.0, 4.5]
+base_net_income = 620_000_000  # USD
+
+def project_net_income(rate):
+    """Higher rates improve margins up to a point."""
+    spread_factor = 1 + (rate - 3.5) * 0.03
+    return round(base_net_income * spread_factor, 2)
+
+for r in rates:
+    print(f"Rate: {r:.1f}% → projected net income: ${project_net_income(r):,.0f}")
+          </code></pre>
+
+          <aside class="notes">
+            Explain that this is a toy model used for demos: it shows how net
+            income changes with interest rates. In real analysis we use more
+            complex models, but this shows stakeholders that code can be part of
+            the presentation.
+          </aside>
+        </section>
+
+        <!-- Slide 5: Financial math formula -->
+        <section>
+          <h2>Key Financial Metric – Return on Equity (ROE)</h2>
+          <p>
+            ROE tells us how efficiently the bank is generating profit from
+            shareholders' equity:
+          </p>
+          <p>
+            \[
+            ROE = \frac{\text{Net Income}}{\text{Average Shareholders' Equity}}
+            \]
+          </p>
+          <p class="fragment">
+            Example: If Net Income = \$620M and Equity = \$6.2B:
+          </p>
+          <p class="fragment">
+            \[
+            ROE = \frac{620}{6200} = 0.10 = 10\%
+            \]
+          </p>
+
+          <aside class="notes">
+            Highlight that our ROE is compared against peer banks and the
+            internal target. Use this slide to align on whether we are
+            over- or under-performing.
+          </aside>
+        </section>
+
+        <!-- Slide 6: Closing slide with fragments -->
+        <section>
+          <h2>Next Steps</h2>
+          <ol>
+            <li class="fragment">Finalize dividend and buyback plan</li>
+            <li class="fragment">Refine risk-weighted asset allocation</li>
+            <li class="fragment">Expand predictive credit risk models</li>
+            <li class="fragment fade-in-then-out">
+              Prepare scenario analysis for 3 macroeconomic paths
+            </li>
+          </ol>
+
+          <aside class="notes">
+            Use this slide to summarize action items for the upcoming quarter.
+            Ask for questions and feedback from the stakeholders.
+          </aside>
+        </section>
+      </div>
+    </div>
+
+    <!-- RevealJS core + plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+
+    <script>
+      Reveal.initialize({
+        width: 1280,
+        height: 720,
+        margin: 0.05,
+        controls: true,
+        progress: true,
+        hash: true,
+        transition: "slide",
+        plugins: [RevealMarkdown, RevealHighlight, RevealMath, RevealNotes],
+        math: {
+          mathjax:
+            "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js",
+          tex: {
+            inlineMath: [["\\(", "\\)"]],
+            displayMath: [["\\[", "\\]"]],
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
