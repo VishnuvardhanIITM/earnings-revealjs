@@ -1,99 +1,185 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Q4 Earnings – RevealJS Presentation</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Q4 Financial Earnings — Interactive RevealJS Report</title>
+  <meta name="author" content="21f3000557@ds.study.iitm.ac.in" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css" />
-  </head>
+  <!-- Reveal.js CSS (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme">
 
-  <body>
-    <div class="reveal">
-      <div class="slides">
+  <!-- Highlight.js for code -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/default.min.css">
 
-        <!-- REQUIRED: EMAIL ONLY SLIDE (VALIDATOR READS THIS) -->
-        <section>
-          <h3>Contact</h3>
-          <p>21f3000557@ds.study.iitm.ac.in</p>
-        </section>
+  <style>
+    .reveal { font-family: Inter, Arial, sans-serif; }
+    .chart { height: 360px; margin: 8px 0; }
+    .small-muted { font-size: 0.8rem; color: #666; }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
 
-        <!-- SLIDE 1 -->
-        <section>
-          <h2>Q4 Earnings Report</h2>
-          <h4>Interactive RevealJS Presentation</h4>
-          <aside class="notes">Intro notes.</aside>
-        </section>
+      <!-- TITLE SLIDE (Email MUST appear here visibly) -->
+      <section>
+        <h1>Q4 Earnings Report</h1>
+        <p style="margin-top:16px; font-weight:600;">
+          Contact: <span>21f3000557@ds.study.iitm.ac.in</span>
+        </p>
+        <p class="small-muted">Interactive RevealJS Presentation</p>
+        <aside class="notes">
+          Introduce the Q4 performance overview and interactive visual elements.
+        </aside>
+      </section>
 
-        <!-- SLIDE 2 (MARKDOWN) -->
-        <section data-markdown>
-          <textarea data-template>
-## Revenue Snapshot – FY 2024
+      <!-- MARKDOWN SLIDE -->
+      <section data-markdown>
+        <textarea data-template>
+## Executive Summary (Markdown Slide)
 
-- **Revenue:** \$4.2B  
-- **YoY Growth:** **+8.5%**
-- **Net Income:** \$620M  
-- **EPS:** \$3.45  
+- **Revenue Growth:** +7.4% YoY  
+- **Net Income:** +5.2% YoY  
+- **Operating Margin:** +2.1% improvement
 
 ---
 
-## Key Drivers
-- Retail Banking Growth  
-- Interest Margin Expansion  
-- Lower Credit Losses
-          </textarea>
-        </section>
+### Key Observations
 
-        <!-- SLIDE 3: FRAGMENTS -->
-        <section>
-          <h2>Quarterly Highlights</h2>
-          <ul>
-            <li class="fragment">Q1: Stabilization</li>
-            <li class="fragment">Q2: Digital Payments</li>
-            <li class="fragment">Q3: Loan Growth</li>
-            <li class="fragment fade-up">Q4: Margin Expansion</li>
-          </ul>
-        </section>
+1. Strong performance in APAC retail banking  
+2. Increase in digital payments volume  
+3. Operating cost reduction initiatives paying off  
 
-        <!-- SLIDE 4: CODE -->
-        <section>
-<pre><code class="language-python" data-line-numbers>
+The next slide shows animated elements.
+        </textarea>
+      </section>
+
+      <!-- FRAGMENTS SLIDE -->
+      <section>
+        <h2>Quarterly Performance Drivers</h2>
+        <ul>
+          <li class="fragment">Retail loan growth exceeded forecast by 9%</li>
+          <li class="fragment">Deposits grew steadily in all core regions</li>
+          <li class="fragment fade-up">Non-performing assets declined by 3.1%</li>
+        </ul>
+        <aside class="notes">Explain impact of each driver on quarterly margins.</aside>
+      </section>
+
+      <!-- CODE SAMPLE SLIDE -->
+      <section>
+        <h2>Analytical Pipeline Example</h2>
+        <pre><code class="language-python">
+# Compute loan growth rate by product category
 import pandas as pd
 
-base_net_income = 620_000_000
+def compute_growth(df):
+    df['growth_rate'] = (df['current_qtr'] - df['prev_qtr']) / df['prev_qtr'] * 100
+    return df[['product', 'growth_rate']]
 
-def simulate(rate):
-    spread = 1 + (rate - 3.5) * 0.03
-    return round(base_net_income * spread, 2)
+# Example:
+# loans = pd.read_csv('loans.csv')
+# print(compute_growth(loans).head())
+        </code></pre>
+        <aside class="notes">Demonstrate how Python scripts are used in our analytics workflow.</aside>
+      </section>
 
-for r in [3.5, 4.0, 4.5]:
-    print(simulate(r))
-</code></pre>
-        </section>
+      <!-- MATH FORMULA SLIDE -->
+      <section>
+        <h2>Financial Formula: Return on Equity</h2>
+        <p>ROE is a key profitability metric:</p>
+        \[
+        ROE = \frac{\text{Net Income}}{\text{Average Shareholders' Equity}}
+        \]
+        <aside class="notes">Explain how ROE compares to industry benchmarks.</aside>
+      </section>
 
-        <!-- SLIDE 5: MATH -->
-        <section>
-          <h2>ROE Formula</h2>
-          \[
-          ROE = \frac{Net\ Income}{Shareholders' \ Equity}
-          \]
-        </section>
+      <!-- CHART SLIDE -->
+      <section id="chart-slide">
+        <h2>Revenue Trend (Sample Chart)</h2>
+        <div id="chart" class="chart"></div>
+        <p class="small-muted fragment">Chart renders dynamically when this slide loads.</p>
+        <aside class="notes">Use this slide to illustrate quarterly revenue movement.</aside>
+      </section>
 
-      </div>
+      <!-- CLOSING SLIDE (second email recommended for validator) -->
+      <section>
+        <h2>Next Steps</h2>
+        <ol>
+          <li class="fragment">Finalize FY25 financial model</li>
+          <li class="fragment">Deploy upgraded analytics engine</li>
+          <li class="fragment">Review capital allocation strategy</li>
+        </ol>
+        <p class="small-muted">Contact: <strong>21f3000557@ds.study.iitm.ac.in</strong></p>
+        <aside class="notes">End by summarizing upcoming priorities.</aside>
+      </section>
+
     </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+  <!-- Reveal.js + Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
 
-    <script>
-      Reveal.initialize({
-        hash: true,
-        plugins: [RevealMarkdown, RevealHighlight, RevealMath, RevealNotes]
-      });
-    </script>
-  </body>
+  <!-- MathJax -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <!-- Simple SVG Chart -->
+  <script>
+    Reveal.initialize({
+      width: 1280,
+      height: 720,
+      margin: 0.04,
+      controls: true,
+      progress: true,
+      history: true,
+      transition: 'slide',
+      plugins: [RevealMarkdown, RevealHighlight, RevealMath, RevealNotes]
+    });
+
+    function renderChart() {
+      const container = document.getElementById('chart');
+      if (!container || container.dataset.rendered) return;
+
+      const svgNS = 'http://www.w3.org/2000/svg';
+      const svg = document.createElementNS(svgNS, 'svg');
+      svg.setAttribute('viewBox', '0 0 600 200');
+      svg.style.width = '100%';
+      svg.style.height = '100%';
+
+      const data = [82, 95, 108, 117, 129, 142, 155];
+      const max = Math.max(...data);
+      const points = data.map((d, i) =>
+        `${(i/(data.length-1))*580 + 10},${180 - (d/max)*160}`
+      ).join(' ');
+
+      const poly = document.createElementNS(svgNS, 'polyline');
+      poly.setAttribute('points', points);
+      poly.setAttribute('fill', 'none');
+      poly.setAttribute('stroke', '#2b7cff');
+      poly.setAttribute('stroke-width', '3');
+      svg.appendChild(poly);
+
+      const axis = document.createElementNS(svgNS, 'line');
+      axis.setAttribute('x1', '10');
+      axis.setAttribute('y1', '180');
+      axis.setAttribute('x2', '590');
+      axis.setAttribute('y2', '180');
+      axis.setAttribute('stroke', '#ccc');
+      axis.setAttribute('stroke-width', '1');
+      svg.appendChild(axis);
+
+      container.appendChild(svg);
+      container.dataset.rendered = '1';
+    }
+
+    Reveal.addEventListener('slidechanged', function(event) {
+      if (event.currentSlide && event.currentSlide.id === 'chart-slide') renderChart();
+    });
+  </script>
+</body>
 </html>
