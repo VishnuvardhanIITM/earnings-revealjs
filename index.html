@@ -5,46 +5,41 @@
     <title>Q4 Earnings – Interactive RevealJS Deck</title>
 
     <!-- RevealJS core + theme -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css"
+      id="theme"
+    />
 
     <!-- Code highlighting -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css" />
-
-    <style>
-      .footer-email {
-        position: fixed;
-        left: 20px;
-        bottom: 10px;
-        opacity: 0.7;
-        font-size: 14px;
-      }
-    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/monokai.css"
+    />
   </head>
 
   <body>
     <div class="reveal">
       <div class="slides">
 
-        <!-- SLIDE 1: Title + Email + Speaker Notes -->
+        <!-- SLIDE 1: TITLE + EMAIL + NOTES -->
         <section>
           <h2>Q4 Earnings Report</h2>
           <h4>Interactive RevealJS Presentation</h4>
 
-          <!-- REQUIRED: Email visible in presentation -->
+          <!-- EMAIL VISIBLE ONLY HERE -->
           <p><strong>Contact: 21f3000557@ds.study.iitm.ac.in</strong></p>
 
-          <div class="footer-email">
-            21f3000557@ds.study.iitm.ac.in
-          </div>
-
           <aside class="notes">
-            Introduce the earnings report and explain that this deck uses RevealJS
-            to demonstrate interactive, modern presentations for financial stakeholders.
+            Welcome stakeholders. Introduce the interactive RevealJS deck.
           </aside>
         </section>
 
-        <!-- SLIDE 2 — Markdown Slide -->
+        <!-- SLIDE 2: MARKDOWN -->
         <section data-markdown>
           <textarea data-template>
 ## Revenue Snapshot – FY 2024
@@ -60,11 +55,11 @@
 
 - Strong **Retail Banking**
 - Improved **Net Interest Margin**
-- Decrease in **credit losses**
+- Lower **Credit Losses**
           </textarea>
         </section>
 
-        <!-- SLIDE 3 — Fragments / Animations -->
+        <!-- SLIDE 3: FRAGMENTS -->
         <section>
           <h2>Quarterly Highlights</h2>
           <ul>
@@ -75,18 +70,18 @@
           </ul>
 
           <aside class="notes">
-            Explain how each quarter contributed differently to earnings momentum.
+            Explain each quarter as it appears using fragments.
           </aside>
         </section>
 
-        <!-- SLIDE 4 — Code with syntax highlighting -->
+        <!-- SLIDE 4: CODE -->
         <section>
-          <h2>Net Income Sensitivity Model (Python)</h2>
+          <h2>Net Income Sensitivity (Python)</h2>
 
           <pre><code class="language-python" data-line-numbers="1-3|5-11">
 import pandas as pd
 
-base_net_income = 620_000_000
+base_net_income = 620_000_000  # USD
 
 def simulate(rate):
     spread = 1 + (rate - 3.5) * 0.03
@@ -97,15 +92,13 @@ for r in [3.5, 4.0, 4.5]:
           </code></pre>
 
           <aside class="notes">
-            Explain that this is a simplified projection model for demonstration.
+            Illustrative earnings sensitivity example.
           </aside>
         </section>
 
-        <!-- SLIDE 5 — Math Formula -->
+        <!-- SLIDE 5: MATH -->
         <section>
           <h2>Return on Equity (ROE)</h2>
-
-          <p>Key profitability metric:</p>
 
           <p>
             \[
@@ -114,36 +107,32 @@ for r in [3.5, 4.0, 4.5]:
           </p>
 
           <p class="fragment">
-            Example: If Net Income = \$620M, Equity = \$6.2B:
+            Example: Net Income = \$620M, Equity = \$6.2B
           </p>
 
           <p class="fragment">
             \[
-            ROE = \frac{620}{6200} = 0.10 = 10\%
+            ROE = \frac{620}{6200} = 10\%
             \]
           </p>
 
           <aside class="notes">
-            Highlight ROE vs industry benchmarks.
+            Compare ROE to competitors and industry benchmarks.
           </aside>
         </section>
 
-        <!-- SLIDE 6 — Ending Slide with Fragments -->
+        <!-- SLIDE 6: NEXT STEPS -->
         <section>
           <h2>Next Steps</h2>
           <ol>
-            <li class="fragment">Finalize dividend strategy</li>
-            <li class="fragment">Improve predictive credit models</li>
-            <li class="fragment">Optimize loan portfolio risk</li>
+            <li class="fragment">Optimize funding mix</li>
+            <li class="fragment">Advance predictive analytics</li>
+            <li class="fragment">Strengthen credit risk models</li>
             <li class="fragment fade-in-then-out">Prepare macroeconomic scenarios</li>
           </ol>
 
-          <div class="footer-email">
-            21f3000557@ds.study.iitm.ac.in
-          </div>
-
           <aside class="notes">
-            Summarize strategic focus areas for upcoming fiscal year.
+            Final summary and action steps.
           </aside>
         </section>
 
@@ -162,8 +151,8 @@ for r in [3.5, 4.0, 4.5]:
         hash: true,
         width: 1280,
         height: 720,
-        plugins: [RevealMarkdown, RevealHighlight, RevealMath, RevealNotes],
         transition: "slide",
+        plugins: [RevealMarkdown, RevealHighlight, RevealMath, RevealNotes],
         math: {
           mathjax: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js",
         },
